@@ -2,10 +2,11 @@
   "name": "php-brasil/collection",
   "description": "",
   "type": "library",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "license": "MIT",
-  "minimum-stability": "dev",
-  "require": {},
+  "require": {
+    "php": ">=5.6"
+  },
   "autoload": {
     "psr-4": {
       "PhpBrasil\\Collection\\": "src/"
