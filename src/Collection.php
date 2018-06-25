@@ -78,14 +78,11 @@ class Collection
     }
 
     /**
-     * @param mixed $property
+     * @param string $property
      * @return array
      */
     public function pluck($property)
     {
-        if (!is_array($property)) {
-            $property = [$property];
-        }
         return array_map(function ($item) use ($property) {
             return prop($item, $property);
         }, $this->array);
