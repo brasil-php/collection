@@ -11,7 +11,7 @@ trait CollectionArrayAccess
     /**
      * @var array
      */
-    protected $array = [];
+    protected $records = [];
 
     /**
      * Whether a offset exists
@@ -27,7 +27,7 @@ trait CollectionArrayAccess
      */
     public function offsetExists($offset)
     {
-        if (!is_numeric($offset) or !isset($this->array[$offset])) {
+        if (!is_numeric($offset) or !isset($this->records[$offset])) {
             return false;
         }
         return true;
@@ -44,10 +44,10 @@ trait CollectionArrayAccess
      */
     public function offsetGet($offset)
     {
-        if (!isset($this->array[$offset])) {
+        if (!isset($this->records[$offset])) {
             return null;
         }
-        return $this->array[$offset];
+        return $this->records[$offset];
     }
 
     /**
@@ -70,7 +70,7 @@ trait CollectionArrayAccess
         if (!$offset and $offset !== 0) {
             return;
         }
-        $this->array[$offset] = $value;
+        $this->records[$offset] = $value;
     }
 
     /**
@@ -84,7 +84,7 @@ trait CollectionArrayAccess
      */
     public function offsetUnset($offset)
     {
-        unset($this->array[$offset]);
+        unset($this->records[$offset]);
     }
 
 }

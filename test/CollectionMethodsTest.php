@@ -18,7 +18,7 @@ class CollectionMethodsTest extends TestCase
     public function test_pluck()
     {
         $pluck = Collection::create([['element' => 'acme', 'ignore' => 'me']])->pluck('element');
-        $this->assertEquals(search($pluck, '0.ignore'), null, "Does not have index on '{$pluck}'");
-        $this->assertEquals(search($pluck, '0'), 'acme', "Have index on '{$pluck}'");
+        $array = $pluck->records();
+        $this->assertEquals(search( $array, '0'), 'acme', "Have value 'acme' on '{$pluck}'");
     }
 }

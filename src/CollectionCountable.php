@@ -11,7 +11,7 @@ trait CollectionCountable
     /**
      * @var array
      */
-    protected $array = [];
+    protected $records = [];
 
     /**
      * Count elements of an object
@@ -24,6 +24,6 @@ trait CollectionCountable
      */
     public function count()
     {
-        return count($this->array);
+        return count($this->records);
     }
 }

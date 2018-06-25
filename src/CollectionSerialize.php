@@ -11,7 +11,7 @@ trait CollectionSerialize
     /**
      * @var array
      */
-    protected $array = [];
+    protected $records = [];
 
     /**
      * String representation of object
@@ -21,7 +21,7 @@ trait CollectionSerialize
      */
     public function serialize()
     {
-        return serialize($this->array);
+        return serialize($this->records);
     }
 
     /**
@@ -35,6 +35,6 @@ trait CollectionSerialize
      */
     public function unserialize($serialized)
     {
-        $this->array = unserialize($serialized);
+        $this->records = unserialize($serialized);
     }
 }

@@ -11,7 +11,7 @@ trait CollectionIterator
     /**
      * @var array
      */
-    protected $array;
+    protected $records;
 
     /**
      * Return the current element
@@ -21,7 +21,7 @@ trait CollectionIterator
      */
     public function current()
     {
-        return current($this->array);
+        return current($this->records);
     }
 
     /**
@@ -32,7 +32,7 @@ trait CollectionIterator
      */
     public function next()
     {
-        next($this->array);
+        next($this->records);
     }
 
     /**
@@ -43,7 +43,7 @@ trait CollectionIterator
      */
     public function key()
     {
-        return key($this->array);
+        return key($this->records);
     }
 
     /**
@@ -55,7 +55,7 @@ trait CollectionIterator
      */
     public function valid()
     {
-        $key = key($this->array);
+        $key = key($this->records);
         return ($key !== null && $key !== false);
     }
 
@@ -67,6 +67,6 @@ trait CollectionIterator
      */
     public function rewind()
     {
-        reset($this->array);
+        reset($this->records);
     }
 }

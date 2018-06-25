@@ -42,7 +42,7 @@ class Collection implements ArrayAccess, Serializable, Countable, Iterator
     /**
      * @var array
      */
-    protected $array = [];
+    protected $records = [];
 
     /**
      * Collection constructor.
@@ -50,7 +50,7 @@ class Collection implements ArrayAccess, Serializable, Countable, Iterator
      */
     public function __construct($input = [])
     {
-        $this->array = $input;
+        $this->records = $input;
     }
 
     /**
@@ -63,10 +63,18 @@ class Collection implements ArrayAccess, Serializable, Countable, Iterator
     }
 
     /**
+     * @return array
+     */
+    public function records()
+    {
+        return $this->records;
+    }
+
+    /**
      * @return string
      */
     public function __toString()
     {
-        return strval(stringify($this->array));
+        return strval(stringify($this->records));
     }
 }

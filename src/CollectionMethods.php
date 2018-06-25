@@ -14,7 +14,7 @@ trait CollectionMethods
     /**
      * @var array
      */
-    protected $array = [];
+    protected $records = [];
 
     /**
      * @param callable $callback
@@ -23,7 +23,7 @@ trait CollectionMethods
      */
     public function reduce(callable $callback, $clear = true)
     {
-        $array = array_reduce($this->array, $callback, []);
+        $array = array_reduce($this->records, $callback, []);
         if (!is_array($array)) {
             throw new RuntimeException("The response of '\$callback' must be an array");
         }
@@ -39,7 +39,7 @@ trait CollectionMethods
      */
     public function map(callable $callback)
     {
-        $array = array_map($callback, $this->array, array_keys($this->array));
+        $array = array_map($callback, $this->records, array_keys($this->records));
         return $this->create($array);
     }
 
@@ -50,10 +50,10 @@ trait CollectionMethods
     public function filter(callable $callback = null)
     {
         if (!is_null($callback)) {
-            $array = array_filter($this->array, $callback, ARRAY_FILTER_USE_BOTH);
+            $array = array_filter($this->records, $callback, ARRAY_FILTER_USE_BOTH);
         }
         if (!isset($array)) {
-            $array = array_filter($this->array);
+            $array = array_filter($this->records);
         }
         return $this->create($array);
     }
@@ -66,7 +66,7 @@ trait CollectionMethods
     {
         $array = array_map(function ($item) use ($property) {
             return prop($item, $property);
-        }, $this->array);
+        }, $this->records);
         return $this->create($array);
     }
 

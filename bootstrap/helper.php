@@ -3,6 +3,7 @@
 namespace PhpBrasil\Collection\Helper;
 
 use ArrayAccess;
+use function is_numeric;
 
 /**
  * @param mixed $input
@@ -71,6 +72,9 @@ function search($context, $path, $default = null)
         $path = explode('.', $path);
     }
     foreach ($path as $piece) {
+        if (is_numeric($piece)) {
+            $piece = (int)$piece;
+        }
         if (!is_array($context) || !array_key_exists($piece, $context)) {
             return $default;
         }
