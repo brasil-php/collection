@@ -1,0 +1,17 @@
+{
+  "name": "php-brasil/collection",
+  "description": "",
+  "type": "library",
+  "version": "0.1.0",
+  "license": "MIT",
+  "minimum-stability": "dev",
+  "require": {},
+  "autoload": {
+    "psr-4": {
+      "PhpBrasil\\Collection\\": "src/"
+    },
+    "files": [
+      "bootstrap/helper.php"
+    ]
+  }
+}
