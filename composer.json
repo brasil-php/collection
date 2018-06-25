@@ -3,7 +3,7 @@
   "description": "",
   "minimum-stability": "stable",
   "type": "library",
-  "version": "0.1.7",
+  "version": "0.1.8",
   "license": "MIT",
   "require": {
     "php": ">=5.6"
