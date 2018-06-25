@@ -2,20 +2,47 @@
 
 namespace PhpBrasil\Collection;
 
-use RuntimeException;
-use function PhpBrasil\Collection\Helper\prop;
+use ArrayAccess;
+use Countable;
+use Iterator;
+use Serializable;
 use function PhpBrasil\Collection\Helper\stringify;
 
 /**
  * Class Collection
  * @package PhpBrasil\Collection
  */
-class Collection
+class Collection implements ArrayAccess, Serializable, Countable, Iterator
 {
+    /**
+     * @trait CollectionMethods
+     */
+    use CollectionMethods;
+
+    /**
+     * @trait CollectionArrayAccess
+     */
+    use CollectionArrayAccess;
+
+    /**
+     * @trait CollectionSerialize
+     */
+    use CollectionSerialize;
+
+    /**
+     * @trait CollectionCountable
+     */
+    use CollectionCountable;
+
+    /**
+     * @trait CollectionIterator
+     */
+    use CollectionIterator;
+
     /**
      * @var array
      */
-    private $array = [];
+    protected $array = [];
 
     /**
      * Collection constructor.
@@ -33,59 +60,6 @@ class Collection
     public static function create(array $array = [])
     {
         return new static($array);
-    }
-
-    /**
-     * @param callable $callback
-     * @param bool $clear
-     * @return Collection
-     */
-    public function reduce(callable $callback, $clear = true)
-    {
-        $array = array_reduce($this->array, $callback, []);
-        if (!is_array($array)) {
-            throw new RuntimeException("The response of '\$callback' must be an array");
-        }
-        if ($clear) {
-            $array = array_values($array);
-        }
-        return new static($array);
-    }
-
-    /**
-     * @param callable $callback
-     * @return Collection
-     */
-    public function map(callable $callback)
-    {
-        $array = array_map($callback, $this->array, array_keys($this->array));
-        return new static($array);
-    }
-
-    /**
-     * @param callable $callback
-     * @return Collection
-     */
-    public function filter(callable $callback = null)
-    {
-        if (!is_null($callback)) {
-            $array = array_filter($this->array, $callback, ARRAY_FILTER_USE_BOTH);
-        }
-        if (!isset($array)) {
-            $array = array_filter($this->array);
-        }
-        return new static($array);
-    }
-
-    /**
-     * @param string $property
-     * @return array
-     */
-    public function pluck($property)
-    {
-        return array_map(function ($item) use ($property) {
-            return prop($item, $property);
-        }, $this->array);
     }
 
     /**

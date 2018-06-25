@@ -15,5 +15,16 @@
     "files": [
       "bootstrap/helper.php"
     ]
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "PhpBrasil\\Collection\\Test\\": "test/"
+    }
+  },
+  "require-dev": {
+    "phpunit/phpunit": "^6.5"
+  },
+  "scripts": {
+    "test": "vendor/bin/phpunit --bootstrap vendor/autoload.php test"
   }
 }

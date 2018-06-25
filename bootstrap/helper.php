@@ -2,6 +2,8 @@
 
 namespace PhpBrasil\Collection\Helper;
 
+use ArrayAccess;
+
 /**
  * @param mixed $input
  * @param string $indent
@@ -17,8 +19,8 @@ function stringify($input, $indent = '')
             $pieces = [];
             foreach ($input as $key => $value) {
                 $pieces[] = "{$indent}    "
-                    . ($indexed ? '' : $this->stringify($key) . ' => ')
-                    . $this->stringify($value, "{$indent}    ");
+                    . ($indexed ? '' : stringify($key) . ' => ')
+                    . stringify($value, "{$indent}    ");
             }
             return "[\n" . implode(",\n", $pieces) . "\n" . $indent . "]";
         case 'boolean':
@@ -58,12 +60,12 @@ function prop($value, $property = null, $default = null)
 }
 
 /**
- * @param array $context
+ * @param array|ArrayAccess $context
  * @param array|string $path
  * @param mixed $default (null)
  * @return mixed|null
  */
-function search(array $context, $path, $default = null)
+function search($context, $path, $default = null)
 {
     if (!is_array($path)) {
         $path = explode('.', $path);
