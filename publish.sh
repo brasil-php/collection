@@ -3,7 +3,7 @@
 function __publish {
   search='"version": "(.*)"'
   replace='"version": "'${release}'"'
-  sed -i -E "s/${search}/${replace}/g" "$1"
+  sed -i -E "s/${search}/${replace}/g" "composer.json"
 }
 
 function __help {
@@ -22,14 +22,14 @@ if [ -d ".git" ]; then
   changes=$(git status --porcelain)
 
   if [ -z "${changes}" ]; then
-    __publish "composer.json"
+    __publish
     git add composer.json
     git commit -m "Publish to ${release}"
-    git tag -a "${release}"
+    git tag -a "${release}" -m "Publish tag ${release}"
     git push origin --tags
   else
     echo "Please commit staged files prior to publish"
   fi
 else
-  __publish "composer.json"
+  __publish
 fi
