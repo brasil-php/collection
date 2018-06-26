@@ -10,6 +10,7 @@ use PhpBrasil\Collection\Resources\TraitArrayAccess;
 use PhpBrasil\Collection\Resources\TraitCountable;
 use PhpBrasil\Collection\Resources\TraitIterator;
 use PhpBrasil\Collection\Resources\TraitJsonSerializable;
+use PhpBrasil\Collection\Resources\TraitMutate;
 use PhpBrasil\Collection\Resources\TraitSerialize;
 use PhpBrasil\Collection\Resources\TraitTransform;
 use Serializable;
@@ -50,6 +51,11 @@ class Records implements ArrayAccess, Serializable, Countable, Iterator, JsonSer
      * @see TraitJsonSerializable
      */
     use TraitJsonSerializable;
+
+    /**
+     * @see TraitMutate
+     */
+    use TraitMutate;
 
     /**
      * @var array
