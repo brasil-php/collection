@@ -4,6 +4,7 @@ namespace PhpBrasil\Collection\Resources;
 
 use PhpBrasil\Collection\Pack;
 use RuntimeException;
+use function array_values;
 use function PhpBrasil\Collection\Helper\prop;
 
 /**
@@ -12,23 +13,6 @@ use function PhpBrasil\Collection\Helper\prop;
  */
 trait TraitTransform
 {
-    /**
-     * @param callable $callback
-     * @param bool $clear
-     * @return Pack
-     */
-    public function reduce(callable $callback, $clear = true)
-    {
-        $array = array_reduce($this->records, $callback, []);
-        if (!is_array($array)) {
-            throw new RuntimeException("The response of '\$callback' must be an array");
-        }
-        if ($clear) {
-            $array = array_values($array);
-        }
-        return $this->build($array);
-    }
-
     /**
      * @param callable $callback
      * @return Pack
@@ -51,7 +35,7 @@ trait TraitTransform
         if (!isset($array)) {
             $array = array_filter($this->records);
         }
-        return $this->build($array);
+        return $this->build(array_values($array));
     }
 
     /**
@@ -64,6 +48,22 @@ trait TraitTransform
             return prop($item, $property);
         }, $this->records);
         return $this->build($array);
+    }
+
+    /**
+     * @param callable $callback
+     * @param mixed $initial
+     * @return mixed
+     */
+    public function reduce(callable $callback, $initial = null)
+    {
+        $accumulator = $initial;
+        $records = $this->records;
+        $array = $this->records;
+        array_walk($records, function($value, $key) use(&$accumulator, $callback, $array) {
+            $accumulator = $callback($accumulator, $value, $key, $array);
+        });
+        return $accumulator;
     }
 
     /**
