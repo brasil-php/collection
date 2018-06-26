@@ -25,8 +25,9 @@ if [ -d ".git" ]; then
     __publish
     git add composer.json
     git commit -m "Publish to ${release}"
-    git tag -a "${release}" -m "Publish tag ${release}"
-    git push origin --tags
+    git push origin master
+    git tag -a ${release} -m "Publish tag ${release}"
+    git push origin ${release}
   else
     echo "Please commit staged files prior to publish"
   fi

@@ -1,25 +1,21 @@
 <?php
 
-namespace PhpBrasil\Collection;
+namespace PhpBrasil\Collection\Resources;
 
+use PhpBrasil\Collection\Pack;
 use RuntimeException;
 use function PhpBrasil\Collection\Helper\prop;
 
 /**
- * Trait CollectionMethods
- * @package PhpBrasil\Collection
+ * Trait TraitTransform
+ * @package PhpBrasil\Collection\Resources
  */
-trait CollectionMethods
+trait TraitTransform
 {
-    /**
-     * @var array
-     */
-    protected $records = [];
-
     /**
      * @param callable $callback
      * @param bool $clear
-     * @return Collection
+     * @return Pack
      */
     public function reduce(callable $callback, $clear = true)
     {
@@ -30,22 +26,22 @@ trait CollectionMethods
         if ($clear) {
             $array = array_values($array);
         }
-        return $this->create($array);
+        return $this->build($array);
     }
 
     /**
      * @param callable $callback
-     * @return Collection
+     * @return Pack
      */
     public function map(callable $callback)
     {
         $array = array_map($callback, $this->records, array_keys($this->records));
-        return $this->create($array);
+        return $this->build($array);
     }
 
     /**
      * @param callable $callback
-     * @return Collection
+     * @return Pack
      */
     public function filter(callable $callback = null)
     {
@@ -55,34 +51,31 @@ trait CollectionMethods
         if (!isset($array)) {
             $array = array_filter($this->records);
         }
-        return $this->create($array);
+        return $this->build($array);
     }
 
     /**
      * @param string $property
-     * @return Collection
+     * @return Pack
      */
     public function pluck($property)
     {
         $array = array_map(function ($item) use ($property) {
             return prop($item, $property);
         }, $this->records);
+        return $this->build($array);
+    }
+
+    /**
+     * @param array $array
+     * @return Pack|mixed
+     */
+    public function build(array $array)
+    {
+        if (!method_exists($this, 'create')) {
+            /** @noinspection PhpMethodParametersCountMismatchInspection */
+            return new static($array);
+        }
         return $this->create($array);
-    }
-
-    /**
-     * @return int
-     */
-    public function length()
-    {
-        return $this->count();
-    }
-
-    /**
-     * @return bool
-     */
-    public function isEmpty()
-    {
-        return ($this->count() == 0);
     }
 }

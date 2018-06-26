@@ -1,18 +1,13 @@
 <?php
 
-namespace PhpBrasil\Collection;
+namespace PhpBrasil\Collection\Resources;
 
 /**
- * Trait CollectionArrayAccess
- * @package PhpBrasil\Collection
+ * Trait TraitArrayAccess
+ * @package PhpBrasil\Collection\Resources
  */
-trait CollectionArrayAccess
+trait TraitArrayAccess
 {
-    /**
-     * @var array
-     */
-    protected $records = [];
-
     /**
      * Whether a offset exists
      * @link http://php.net/manual/en/arrayaccess.offsetexists.php
@@ -64,10 +59,11 @@ trait CollectionArrayAccess
      */
     public function offsetSet($offset, $value)
     {
-        if (!is_numeric($offset)) {
+        if (is_null($offset)) {
+            $this->records[] = $value;
             return;
         }
-        if (!$offset and $offset !== 0) {
+        if (!is_numeric($offset) or (!$offset and $offset !== 0)) {
             return;
         }
         $this->records[$offset] = $value;
@@ -87,4 +83,51 @@ trait CollectionArrayAccess
         unset($this->records[$offset]);
     }
 
+    /**
+     * Get a data by key
+     *
+     * @param string The key data to retrieve
+     * @access public
+     * @return mixed
+     */
+    public function __get($key)
+    {
+        return $this->offsetGet($key);
+    }
+
+    /**
+     * Assigns a value to the specified data
+     *
+     * @param string The data key to assign the value to
+     * @param mixed  The value to set
+     * @access public
+     */
+    public function __set($key, $value)
+    {
+        $this->offsetSet($key, $value);
+    }
+
+    /**
+     * Whether or not an data exists by key
+     *
+     * @param string An data key to check for
+     * @access public
+     * @return boolean
+     * @abstracting ArrayAccess
+     */
+    public function __isset($key)
+    {
+        return isset($this->records[$key]);
+    }
+
+    /**
+     * Unsets an data by key
+     *
+     * @param string The key to unset
+     * @access public
+     */
+    public function __unset($key)
+    {
+        unset($this->records[$key]);
+    }
 }

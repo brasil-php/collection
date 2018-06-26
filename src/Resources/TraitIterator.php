@@ -1,18 +1,13 @@
 <?php
 
-namespace PhpBrasil\Collection;
+namespace PhpBrasil\Collection\Resources;
 
 /**
  * Trait CollectionIterator
- * @package PhpBrasil\Collection
+ * @package PhpBrasil\Records
  */
-trait CollectionIterator
+trait TraitIterator
 {
-    /**
-     * @var array
-     */
-    protected $records;
-
     /**
      * Return the current element
      * @link http://php.net/manual/en/iterator.current.php

@@ -3,7 +3,10 @@
 namespace PhpBrasil\Collection\Helper;
 
 use ArrayAccess;
-use function is_numeric;
+use Countable;
+use Serializable;
+use Traversable;
+use function var_dump;
 
 /**
  * @param mixed $input
@@ -75,10 +78,25 @@ function search($context, $path, $default = null)
         if (is_numeric($piece)) {
             $piece = (int)$piece;
         }
-        if (!is_array($context) || !array_key_exists($piece, $context)) {
+        if (!is_traversable($context) || !array_key_exists($piece, $context)) {
             return $default;
         }
         $context = $context[$piece];
     }
     return $context;
+}
+
+/**
+ * @param $instance
+ * @return bool
+ */
+function is_traversable($instance)
+{
+    return is_array($instance) ||
+        (
+            $instance instanceof ArrayAccess &&
+            $instance instanceof Traversable &&
+            $instance instanceof Serializable &&
+            $instance instanceof Countable
+        );
 }

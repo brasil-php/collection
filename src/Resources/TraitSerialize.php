@@ -1,18 +1,13 @@
 <?php
 
-namespace PhpBrasil\Collection;
+namespace PhpBrasil\Collection\Resources;
 
 /**
- * Trait CollectionSerialize
- * @package PhpBrasil\Collection
+ * Trait TraitSerialize
+ * @package PhpBrasil\Collection\Resources
  */
-trait CollectionSerialize
+trait TraitSerialize
 {
-    /**
-     * @var array
-     */
-    protected $records = [];
-
     /**
      * String representation of object
      * @link http://php.net/manual/en/serializable.serialize.php
