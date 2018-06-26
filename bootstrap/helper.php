@@ -6,7 +6,6 @@ use ArrayAccess;
 use Countable;
 use Serializable;
 use Traversable;
-use function var_dump;
 
 /**
  * @param mixed $input

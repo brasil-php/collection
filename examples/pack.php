@@ -2,6 +2,7 @@
 
 use PhpBrasil\Collection\Pack;
 use function PhpBrasil\Collection\Helper\stringify;
+use function PhpBrasil\Collection\pack;
 
 require dirname(__DIR__) . '/vendor/autoload.php';
 
@@ -33,7 +34,7 @@ $reduce = function ($accumulate, $value, $key) {
 };
 
 $array = stringify(
-    Pack::create(['A', '', 'C'])
+    pack(['A', '', 'C'])
         ->map($map)
         ->reduce($reduce)
 );

@@ -13,7 +13,8 @@
       "PhpBrasil\\Collection\\": "src/"
     },
     "files": [
-      "bootstrap/helper.php"
+      "bootstrap/helper.php",
+      "bootstrap/alias.php"
     ]
   },
   "autoload-dev": {
