@@ -34,3 +34,15 @@ echo Pack::create(['A', '', 'C'])->filter();
 #   2 => "C"
 # ];
 ```
+
+### Integrar com seu modelo de dados
+
+```php
+$statement = $pdo->prepare("SELECT * FROM users WHERE name = ?");
+$statement->execute([get('name')]);
+$users = Fetch::create($statement->fetchAll(PDO::FETCH_ASSOC), User::class);
+
+$first = $users->current();
+echo get_class($first);
+# User
+```
