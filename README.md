@@ -13,7 +13,7 @@ $ composer require php-brasil/collection
 ### Importar e sair usando
 
 ```php
-require 'vendor/autoload.php'
+require 'vendor/autoload.php';
 
 use PhpBrasil\Collection\Pack;
 
@@ -23,6 +23,26 @@ foreach ($array as $item) {
     echo 'item ~> ', $item, ';', PHP_EOL;
 }
 # item ~> PHP;
+```
+
+### Utilizando os aliases
+
+```php
+require '/vendor/autoload.php';
+
+use function PhpBrasil\Collection\pack;
+
+$array = pack([['name' => 'PHP']]);
+echo 'with-pluck ~> ', $array->pluck('name'), ';', PHP_EOL;
+echo 'original ~> ', $array, ';', PHP_EOL;
+# [
+#     "PHP"
+# ];
+# [
+#     [
+#         "name" => "PHP"
+#     ]
+# ];
 ```
 
 ### Manipular arrays com operações comuns de arrays
