@@ -3,14 +3,13 @@
 namespace PhpBrasil\Collection\Test\Fetch;
 
 use PhpBrasil\Collection\Fetch;
-use PhpBrasil\Collection\Pack;
-use PHPUnit\Framework\TestCase;
+use PhpBrasil\Collection\Test\TestCaseCollection;
 
 /**
- * Class CreationTest
+ * Class ArrayAccessCurrentTest
  * @package PhpBrasil\Collection\Test\Fetch
  */
-class ArrayAccessCurrentTest extends TestCase
+class ArrayAccessCurrentTest extends TestCaseCollection
 {
     /**
      * @SuppressWarnings(CamelCase)

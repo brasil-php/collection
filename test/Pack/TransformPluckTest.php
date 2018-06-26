@@ -17,8 +17,8 @@ class TransformPluckTest extends TestCase
      */
     public function test()
     {
-        $pluck = Pack::create([['element' => ['name' => 'acme'], 'ignore' => 'me']])->pluck('element');
-        $array = $pluck->records();
-        $this->assertEquals(search( $array, '0.name'), 'acme', "Have value 'acme' on '{$pluck}'");
+        $pack = Pack::create([['element' => ['name' => 'acme'], 'ignore' => 'me']]);
+        $pluck = $pack->pluck('element');
+        $this->assertEquals(search( $pluck, '0.name'), 'acme', "Have value 'acme' on '{$pack}'");
     }
 }

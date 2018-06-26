@@ -46,7 +46,7 @@ trait TraitManipulate
      * @param array $array
      * @return int
      */
-    public function append(array $array)
+    public function prepend(array $array)
     {
         $this->records = array_merge( $array, $this->records);
         return $this->length();
@@ -56,7 +56,7 @@ trait TraitManipulate
      * @param array $array
      * @return int
      */
-    public function prepend(array $array)
+    public function append(array $array)
     {
         $this->records = array_merge(  $this->records, $array);
         return $this->length();
