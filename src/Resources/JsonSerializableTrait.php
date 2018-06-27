@@ -6,7 +6,7 @@ namespace PhpBrasil\Collection\Resources;
  * Trait TraitJsonSerializable
  * @package PhpBrasil\Collection\Resources
  */
-trait TraitJsonSerializable
+trait JsonSerializableTrait
 {
     /**
      * Specify data which should be serialized to JSON

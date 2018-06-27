@@ -6,7 +6,7 @@ namespace PhpBrasil\Collection\Resources;
  * Trait CollectionIterator
  * @package PhpBrasil\Records
  */
-trait TraitIterator
+trait IteratorTrait
 {
     /**
      * Return the current element

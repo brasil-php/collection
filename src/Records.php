@@ -6,13 +6,13 @@ use ArrayAccess;
 use Countable;
 use Iterator;
 use JsonSerializable;
-use PhpBrasil\Collection\Resources\TraitArrayAccess;
-use PhpBrasil\Collection\Resources\TraitCountable;
-use PhpBrasil\Collection\Resources\TraitIterator;
-use PhpBrasil\Collection\Resources\TraitJsonSerializable;
-use PhpBrasil\Collection\Resources\TraitMutate;
-use PhpBrasil\Collection\Resources\TraitSerialize;
-use PhpBrasil\Collection\Resources\TraitTransform;
+use PhpBrasil\Collection\Resources\ArrayAccessTrait;
+use PhpBrasil\Collection\Resources\CountableTrait;
+use PhpBrasil\Collection\Resources\IteratorTrait;
+use PhpBrasil\Collection\Resources\JsonSerializableTrait;
+use PhpBrasil\Collection\Resources\MutateTrait;
+use PhpBrasil\Collection\Resources\SerializeTrait;
+use PhpBrasil\Collection\Resources\TransformTrait;
 use Serializable;
 use function PhpBrasil\Collection\Helper\stringify;
 
@@ -23,39 +23,39 @@ use function PhpBrasil\Collection\Helper\stringify;
 class Records implements ArrayAccess, Serializable, Countable, Iterator, JsonSerializable
 {
     /**
-     * @see TraitTransform
+     * @see TransformTrait
      */
-    use TraitTransform;
+    use TransformTrait;
 
     /**
-     * @see TraitArrayAccess
+     * @see ArrayAccessTrait
      */
-    use TraitArrayAccess;
+    use ArrayAccessTrait;
 
     /**
-     * @see TraitSerialize
+     * @see SerializeTrait
      */
-    use TraitSerialize;
+    use SerializeTrait;
 
     /**
-     * @see TraitCountable
+     * @see CountableTrait
      */
-    use TraitCountable;
+    use CountableTrait;
 
     /**
-     * @see TraitIterator
+     * @see IteratorTrait
      */
-    use TraitIterator;
+    use IteratorTrait;
 
     /**
-     * @see TraitJsonSerializable
+     * @see JsonSerializableTrait
      */
-    use TraitJsonSerializable;
+    use JsonSerializableTrait;
 
     /**
-     * @see TraitMutate
+     * @see MutateTrait
      */
-    use TraitMutate;
+    use MutateTrait;
 
     /**
      * @var array

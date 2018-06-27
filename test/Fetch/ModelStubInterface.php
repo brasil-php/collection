@@ -2,13 +2,13 @@
 
 namespace PhpBrasil\Collection\Test\Fetch;
 
-use PhpBrasil\Collection\Contract\Record;
+use PhpBrasil\Collection\Contract\RecordInterface;
 
 /**
  * Class ModelStub
  * @package PhpBrasil\Collection\Test\Fetch
  */
-class ModelStub implements Record
+class ModelStub implements RecordInterface
 {
     /**
      * @var array

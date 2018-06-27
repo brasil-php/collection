@@ -3,10 +3,10 @@
 namespace PhpBrasil\Collection\Contract;
 
 /**
- * Interface Record
+ * Interface RecordInterface
  * @package PhpBrasil\Collection\Contract
  */
-interface Record
+interface RecordInterface
 {
     /**
      * @param mixed $record

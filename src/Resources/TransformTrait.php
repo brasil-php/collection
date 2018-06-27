@@ -5,10 +5,10 @@ namespace PhpBrasil\Collection\Resources;
 use PhpBrasil\Collection\Pack;
 
 /**
- * Trait TraitTransform
+ * Trait TransformTrait
  * @package PhpBrasil\Collection\Resources
  */
-trait TraitTransform
+trait TransformTrait
 {
     /**
      * @param callable $callback

@@ -9,7 +9,7 @@ use function PhpBrasil\Collection\Helper\prop;
  * Trait TraitMutate
  * @package PhpBrasil\Collection\Resources
  */
-trait TraitMutate
+trait MutateTrait
 {
     /**
      * @param string $property

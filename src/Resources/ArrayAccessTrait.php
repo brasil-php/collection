@@ -3,10 +3,10 @@
 namespace PhpBrasil\Collection\Resources;
 
 /**
- * Trait TraitArrayAccess
+ * Trait ArrayAccessTrait
  * @package PhpBrasil\Collection\Resources
  */
-trait TraitArrayAccess
+trait ArrayAccessTrait
 {
     /**
      * Whether a offset exists

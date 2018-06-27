@@ -3,10 +3,10 @@
 namespace PhpBrasil\Collection\Resources;
 
 /**
- * Trait TraitManipulate
+ * Trait ManipulateTrait
  * @package PhpBrasil\Collection\Resources
  */
-trait TraitManipulate
+trait ManipulateTrait
 {
     /**
      * @param mixed $record

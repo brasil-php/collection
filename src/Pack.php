@@ -2,7 +2,7 @@
 
 namespace PhpBrasil\Collection;
 
-use PhpBrasil\Collection\Resources\TraitManipulate;
+use PhpBrasil\Collection\Resources\ManipulateTrait;
 
 /**
  * Class Pack
@@ -11,9 +11,9 @@ use PhpBrasil\Collection\Resources\TraitManipulate;
 class Pack extends Records
 {
     /**
-     * @see TraitManipulate
+     * @see ManipulateTrait
      */
-    use TraitManipulate;
+    use ManipulateTrait;
 
     /**
      * @param array $array
