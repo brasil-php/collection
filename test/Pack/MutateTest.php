@@ -44,7 +44,8 @@ class MutateTest extends TestCaseCollection
                 10, 9, 8, 7,
             ],
         ];
-        $actual = $pack->reduce(function ($accumulator, $value/*, $key, $records*/) {
+        $actual = $pack->reduce(function ($accumulator, $value, $key, $records) {
+            $this->assertEquals($value, $records[$key], "{$key}");
             if (!isset($accumulator['languages'])) {
                 $accumulator['languages'] = [];
             }
