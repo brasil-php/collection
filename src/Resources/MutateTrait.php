@@ -39,10 +39,8 @@ trait MutateTrait
     public function reduce(callable $callback, $initial = null)
     {
         $accumulator = $initial;
-        $records = $this->records;
-        $array = $this->records;
-        array_walk($records, function($value, $key) use(&$accumulator, $callback, $array) {
-            $accumulator = $callback($accumulator, $value, $key, $array);
+        array_walk($this->records, function($value, $key) use(&$accumulator, $callback) {
+            $accumulator = $callback($accumulator, $value, $key, $this->records);
         });
         return $accumulator;
     }
