@@ -1,6 +1,10 @@
 # Collection
 
-Pequeno projeto para gerenciar coleções usando PHP
+Pequeno projeto para gerenciar coleções usando PHP.
+
+Não de hoje que várias extensões e módulos do PHP tem sua implementação discutida. Com a crescente convergência entre o que as linguagens entregam alguns aspectos ficam cada vez mais evidentes.
+
+As funções do PHP de manipulação de arrays não apresentam.
 
 ## Como instalar
 
