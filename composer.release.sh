@@ -1,14 +1,16 @@
 #!/usr/bin/env bash
 
+DIR_NAME=$(dirname $(readlink -f ${0}))
+
 RELEASE_TYPE=${1}
 RELEASE_TYPES="major,minor,patch,help"
 RELEASE_VERSION=""
 
-PACKAGIST_USER="xxx"
-PACKAGIST_API_TOKEN="<xxx>"
-PACKAGIST_PACKAGE_URL="https://github.com/xxx/xxx"
-if [ -f ".env" ]; then
-   source ./.env
+PACKAGIST_USER=""
+PACKAGIST_API_TOKEN=""
+PACKAGIST_PACKAGE_URL=""
+if [ -f "${DIR_NAME}/.env" ]; then
+   source ${DIR_NAME}/.env
 fi
 
 # Num  Colour    #define         R G B

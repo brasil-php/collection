@@ -2,9 +2,25 @@
 
 Pequeno projeto para gerenciar coleções usando PHP.
 
-Não de hoje que várias extensões e módulos do PHP tem sua implementação discutida. Com a crescente convergência entre o que as linguagens entregam alguns aspectos ficam cada vez mais evidentes.
+## O Projeto
 
-As funções do PHP de manipulação de arrays não apresentam.
+Não é de hoje que várias extensões e módulos do PHP tem sua implementação discutida.
+Com a crescente convergência entre o que as linguagens entregam alguns aspectos foram ficado cada vez mais evidentes.
+
+As funções do PHP de manipulação de arrays estão sempre em algum lugar dessa discussão.
+A imutabilidade e a a nomenclatura usadas estão entre os pontos mais discutidos.
+
+Para ajudar a lidar com arrays e coleções no php apresentamos este pacote que pode ser muito útil.
+
+### Pack
+
+O pack é uma abstração do array que tem métodos que trabalham com imutabilidade e outros que modificam a estrutura do array.
+Ele é útil para centralizar e encadear mutações no array original.
+
+### Fetch
+
+Temos pontos importantes a serem vistos quando o volume de dados gerenciados é grande.
+O PHP suporta cargas incríveis em arrays associativos, mas o mesmo não ocorre quando os arrays são compostos por objetos.
 
 ## Como instalar
 
