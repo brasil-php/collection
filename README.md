@@ -7,8 +7,7 @@ Pequeno projeto para gerenciar coleções usando PHP.
 Não é de hoje que várias extensões e módulos do PHP tem sua implementação discutida.
 Com a crescente convergência entre o que as linguagens entregam alguns aspectos foram ficado cada vez mais evidentes.
 
-As funções do PHP de manipulação de arrays estão sempre em algum lugar dessa discussão.
-A imutabilidade e a a nomenclatura usadas estão entre os pontos mais discutidos.
+As funções do PHP de manipulação de arrays estão sempre em algum lugar dessa discussão e a imutabilidade e a nomenclatura usadas estão entre os pontos mais discutidos.
 
 Para ajudar a lidar com arrays e coleções no php apresentamos este pacote que pode ser muito útil.
 
