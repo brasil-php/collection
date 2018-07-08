@@ -2,7 +2,7 @@
 
 namespace PhpBrasil\Collection;
 
-use PhpBrasil\Collection\Contract\Record;
+use PhpBrasil\Collection\Contract\RecordInterface;
 use RuntimeException;
 
 /**
@@ -84,10 +84,10 @@ class Fetch extends Records
      */
     public function offsetSet($offset, $value)
     {
-        if (!in_array(Record::class, class_implements($value))) {
+        if (!in_array(RecordInterface::class, class_implements($value))) {
             throw new RuntimeException("The value to set not implements fillable");
         }
-        /** @var Record $value */
+        /** @var RecordInterface $value */
         parent::offsetSet($offset, $value->dumpRecord());
     }
 
@@ -100,7 +100,7 @@ class Fetch extends Records
         if (!class_exists($this->fetch)) {
             throw new RuntimeException("Fetch '{$this->fetch}' is not a valid class");
         }
-        if (!in_array(Record::class, class_implements($this->fetch))) {
+        if (!in_array(RecordInterface::class, class_implements($this->fetch))) {
             throw new RuntimeException("Fetch '{$this->fetch}' not implements fillable");
         }
         /** @noinspection PhpUndefinedMethodInspection */

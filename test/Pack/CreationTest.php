@@ -3,13 +3,13 @@
 namespace PhpBrasil\Collection\Test\Pack;
 
 use PhpBrasil\Collection\Pack;
-use PHPUnit\Framework\TestCase;
+use PhpBrasil\Collection\Test\TestCaseCollection;
 
 /**
  * Class CreationTest
  * @package PhpBrasil\Collection\Test\Pack
  */
-class CreationTest extends TestCase
+class CreationTest extends TestCaseCollection
 {
     /**
      * @SuppressWarnings(CamelCase)

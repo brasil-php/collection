@@ -3,13 +3,13 @@
 namespace PhpBrasil\Collection\Test\Pack;
 
 use PhpBrasil\Collection\Pack;
-use PHPUnit\Framework\TestCase;
+use PhpBrasil\Collection\Test\TestCaseCollection;
 
 /**
  * Class ManipulateTest
  * @package PhpBrasil\Collection\Test\Pack
  */
-class ManipulateTest extends TestCase
+class ManipulateTest extends TestCaseCollection
 {
     /**
      * @SuppressWarnings(CamelCase)
@@ -17,16 +17,21 @@ class ManipulateTest extends TestCase
     public function test()
     {
         $pack = Pack::create([]);
-        $this->assertEquals($pack->length(), 0, "Records is not empty '{$pack}'");
-        $this->assertEquals($pack->isEmpty(), true, "Records is not empty '{$pack}'");
+        $this->assertEquals($pack->length(), 0, $pack);
+        $this->assertEquals($pack->isEmpty(), true, $pack);
 
         $pack->push('acme');
-        $this->assertEquals($pack->length(), 1, "Records is empty '{$pack}'");
-        $this->assertEquals($pack->isEmpty(), false, "Records is empty '{$pack}'");
-
+        $this->assertEquals($pack->length(), 1, $pack);
+        $this->assertEquals($pack->isEmpty(), false, $pack);
 
         $pack->pop();
-        $this->assertEquals($pack->length(), 0, "Records is not empty '{$pack}'");
-        $this->assertEquals($pack->isEmpty(), true, "Records is not empty '{$pack}'");
+        $this->assertEquals($pack->length(), 0, $pack);
+        $this->assertEquals($pack->isEmpty(), true, $pack);
+
+        $pack->push('B');
+        $pack->prepend(['A']);
+        $pack->append(['C']);
+        $this->assertEquals($pack->length(), 3, $pack);
+        $this->assertEquals($pack->records(), ['A', 'B', 'C'], $pack);
     }
 }

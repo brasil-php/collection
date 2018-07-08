@@ -6,7 +6,7 @@ namespace PhpBrasil\Collection\Resources;
  * Trait TraitCountable
  * @package PhpBrasil\Collection\Resources
  */
-trait TraitCountable
+trait CountableTrait
 {
     /**
      * Count elements of an object

@@ -6,7 +6,7 @@ namespace PhpBrasil\Collection\Resources;
  * Trait TraitSerialize
  * @package PhpBrasil\Collection\Resources
  */
-trait TraitSerialize
+trait SerializeTrait
 {
     /**
      * String representation of object
