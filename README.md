@@ -9,7 +9,7 @@ Com a crescente convergência entre o que as linguagens entregam alguns aspectos
 
 As funções do PHP de manipulação de arrays estão sempre em algum lugar dessa discussão e a imutabilidade e a nomenclatura usadas estão entre os pontos mais discutidos.
 
-Para ajudar a lidar com arrays e coleções no php apresentamos este pacote que pode ser muito útil.
+Para ajudar a lidar com arrays e coleções apresentamos este pacote que pode ser usado com as estruturas a seguir:
 
 ### Pack
 
