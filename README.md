@@ -13,13 +13,15 @@ Para ajudar a lidar com arrays e coleções apresentamos este pacote que pode se
 
 ### Pack
 
-O pack é uma abstração do array que tem métodos que trabalham com imutabilidade e outros que modificam a estrutura do array.
+O **pack** é uma abstração do array que tem métodos que trabalham com imutabilidade e outros que modificam a estrutura do array.
 Ele é útil para centralizar e encadear mutações no array original.
 
 ### Fetch
 
 Temos pontos importantes a serem vistos quando o volume de dados gerenciados é grande.
 O PHP suporta cargas incríveis em arrays associativos, mas o mesmo não ocorre quando os arrays são compostos por objetos.
+
+Usando o **fetch** é possível recuperar uma massa de dados de centenas de milhares de linhas usando o fetch para array associativo e "extrair" instâncias de objetos à medida que for sendo necessário.
 
 ## Como instalar
 
