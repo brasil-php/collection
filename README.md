@@ -46,6 +46,37 @@ foreach ($array as $item) {
 # item ~> PHP;
 ```
 
+#### Aprimorar funções nativas do PHP para manipulação de arrays
+```php
+require 'vendor/autoload.php';
+
+use PhpBrasil\Collection\Pack;
+
+$pack = Pack::create([
+  ['id' => 3, 'amount' => 60],
+  ['id' => 2, 'amount' => 20],
+  ['id' => 3, 'amount' => 125],
+]);
+
+$reduced = $pack->reduce(function($accumulator, $value) {
+    $id = prop($value, 'id');
+    $amount = prop($value, 'amount');
+
+    if (!isset($accumulator[$id])) {
+      $accumulator[$id] = [
+        'id' => $id,
+        'amount' => 0,
+      ];
+    }
+
+    $accumulator[$id]['amount'] = $accumulator[$id]['amount'] + $amount;
+
+    return $accumulator;
+}, []);
+
+echo stringify($reduced);
+```
+
 ### Utilizando os aliases
 
 ```php
