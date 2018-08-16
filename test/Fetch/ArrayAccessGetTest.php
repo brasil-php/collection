@@ -2,6 +2,7 @@
 
 namespace PhpBrasil\Collection\Test\Fetch;
 
+use PhpBrasil\Collection\Contract\RecordInterface;
 use PhpBrasil\Collection\Fetch;
 use PhpBrasil\Collection\Test\TestCaseCollection;
 use function PhpBrasil\Collection\Helper\search;
@@ -25,7 +26,7 @@ class ArrayAccessGetTest extends TestCaseCollection
         $this->assertInstanceOf(ModelStub::class, $array[0], $array);
 
         if ($this->isVersionGreaterOrEqualsThan('7.1')) {
-            $this->assertInstanceOf(ModelStub::class, search($array, 0), $array);
+            $this->assertInstanceOf(RecordInterface::class, search($array, 0), $array);
         }
     }
 }
