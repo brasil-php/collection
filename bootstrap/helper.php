@@ -77,10 +77,16 @@ function search($context, $path, $default = null)
         if (is_numeric($piece)) {
             $piece = (int)$piece;
         }
-        if (!is_traversable($context) || !array_key_exists($piece, $context)) {
-            return $default;
+        if (!is_traversable($context) && !array_key_exists($piece, $context)) {
+            $context = $default;
+        } else {
+            if(is_array($context)){
+                $context = $context[$piece];
+            }
+            else{
+                $context = $context->dumpRecord();
+            }
         }
-        $context = $context[$piece];
     }
     return $context;
 }

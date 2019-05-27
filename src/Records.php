@@ -6,6 +6,7 @@ use ArrayAccess;
 use Countable;
 use Iterator;
 use JsonSerializable;
+use PhpBrasil\Collection\Contract\RecordInterface;
 use PhpBrasil\Collection\Resources\ArrayAccessTrait;
 use PhpBrasil\Collection\Resources\CountableTrait;
 use PhpBrasil\Collection\Resources\IteratorTrait;
@@ -20,7 +21,7 @@ use function PhpBrasil\Collection\Helper\stringify;
  * Class Records
  * @package PhpBrasil\Collection
  */
-class Records implements ArrayAccess, Serializable, Countable, Iterator, JsonSerializable
+class Records implements ArrayAccess, Serializable, Countable, Iterator, JsonSerializable, RecordInterface
 {
     /**
      * @see TransformTrait
@@ -85,5 +86,22 @@ class Records implements ArrayAccess, Serializable, Countable, Iterator, JsonSer
     public function __toString()
     {
         return strval(stringify($this->records));
+    }
+
+    /**
+     * @param mixed $record
+     * @return mixed
+     */
+    public function fillWithRecord($record)
+    {
+        // TODO: Implement fillWithRecord() method.
+    }
+
+    /**
+     * @return mixed
+     */
+    public function dumpRecord()
+    {
+        return new self($this->records());
     }
 }
